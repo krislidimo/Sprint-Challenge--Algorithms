@@ -92,13 +92,54 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+#Plan:
+# can you move right? if yes:
+# pick up first item
+# move to right
+# compare - 
+#   if less than
+#       move to left and swap
+#       move to right,
+#   if greater than
+#       move to left and swap
+#       move to right
+#
+
+# 5,4,3
+# 0,4,3
+# 0,5,3
+# 4,5,3
+# 4,5,3
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # print(self._list)
+        self.set_light_on()
 
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
+                self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                elif self.compare_item() == -1 or self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                # print(self._list, 'Item: '+str(self._item), 'Pos: '+str(self._position))
+
+            # print(self._list, 'Item: '+str(self._item), 'Pos: '+str(self._position))
+            # print('-------------------------------------')
+
+            while self.can_move_left():
+                self.move_left()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
