@@ -92,24 +92,26 @@ class SortingRobot:
         """
         return self._light == "ON"
 
-#Plan:
-# can you move right? if yes:
-# pick up first item
-# move to right
-# compare - 
-#   if less than
-#       move to left and swap
-#       move to right,
-#   if greater than
-#       move to left and swap
-#       move to right
-#
+    #Plan:
+    # can you move right? if yes:
+    # pick up first item
+    # move to right
+    # compare - 
+    #   if greater than
+    #       swap
+    #       move to left and swap
+    #       move to right
+    #       signal swap was made
+    #   if less than
+    #       move to left and swap
+    #       move to right
+    #
 
-# 5,4,3
-# 0,4,3
-# 0,5,3
-# 4,5,3
-# 4,5,3
+    # 5,4,3
+    # 0,4,3
+    # 0,5,3
+    # 4,5,3
+    # 4,5,3
 
     def sort(self):
         """
